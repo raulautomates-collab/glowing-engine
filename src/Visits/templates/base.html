@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analogous Blue Concept</title>
+    {% include 'base/css.html'%}
+
+    </head>
+<body>
+      
+
+     {% include 'nav/navbar.html' %} 
+       
+{% block content %}
+
+         <a href='auth/login'>login</a>
+            
+
+    
+            <h3>Our Philosophy</h3>
+            <p>The request method is>{{request.method}}</span>{{queryset}} 
+                
+            <h3>page visits:{{page_visit_count}}</h3>
+            <p>{{queryset}}</p>
+
+        <div class="card-grid" id="services">
+        
+
+    {% endblock content %}
+    {% include 'base/js.html'%}
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'Visits/templates/nav/navbar.html' %}
+
+{% block content %}
+<form method='POST'>
+     {% csrf_token %}
+     <input type='text' name='username' placeholder='username'>
+     <input type='password' name='password' placeholder='enter your password'>
+     <input type='email' name='email' placeholder='enter your email'>
+
+</form> 
+
+
+{% endblock content %}
