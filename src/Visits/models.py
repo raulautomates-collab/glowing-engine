@@ -9,6 +9,7 @@ class PageVisit(models.Model):
     approved=models.BooleanField(default=True)
     path=models.TextField(null=True,blank=True)
     
+    
 
 
     def __str__(self):

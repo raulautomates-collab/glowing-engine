@@ -16,9 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from .views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('visits',include('Visits.urls')),
-    path('auth/',include('GOOGLEAUTH.urls')),
+    path('',include('Visits.urls')),
+    
+    #social media authentication urls
+     path('accounts/', include('allauth.urls')),
+     path('accounts/signup/',view=account_signup),
+     path('profiles/',include('PROFILES.urls')),
+     
+    
+    
 ]

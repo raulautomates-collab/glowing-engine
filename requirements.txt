@@ -34,3 +34,6 @@ virtualenv==20.35.4
  requests
  whitenoise
  django-allauth[socialaccount]
+ django-allauth-ui
+ django-widget-tweaks
+ slippersu

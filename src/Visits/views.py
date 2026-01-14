@@ -4,6 +4,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from.models import *
+from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 import pathlib
 
 
@@ -30,6 +32,10 @@ def index(request):
 
 
     
+@login_required
+def user_only(request):
+    return render(request,'about.html') 
 
-def about(request):
+@staff_member_required
+def staff_only(request):
     return render(request,'about.html') 
