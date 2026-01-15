@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'Visits',
     'commando',
     'PROFILES',
-    'SUBSCRIPTIONS',
+    'subscriptions',
 
     #tThird party apps
      "allauth_ui",

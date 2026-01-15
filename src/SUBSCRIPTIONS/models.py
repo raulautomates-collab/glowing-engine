@@ -1,27 +1,26 @@
 from django.db import models
 from django.contrib.auth.models import Group,Permission
 
+# Create your models here.
+PERMISSIONS=[
+        ('basic','Basic Perm'),
+        ('Pro','Pro Perm'),
+        ('advanced','Advanced Perm'),
+        ('Enterprise','Enterprise Perm')
+    ]
 
-SUBSCRIPTION_PERMISSIONS=[
-            ('advanced','Advanced Permissions'),#subsricptions.advanced...
-            ('Pro','Pro Permissions'),
-            ('basic','Basic Permissions'),
-            ('Basic Ai','Basic Ai Perm')
-        ]
-
-class Subsricption(models.Model):
-    name=models.CharField(max_length=130)
+ 
+class Subscription(models.Model):
+    name=models.CharField(max_length=20)
     groups=models.ManyToManyField(Group)
-    active=models.BooleanField(default=True)
-    #correlating permissions to a group
+    isactive=models.BooleanField(default=True)
     permissions=models.ManyToManyField(Permission,limit_choices_to={"content_type__app_label":"subscriptions",
-                                                                    "codename__in":[x[0] for x in SUBSCRIPTION_PERMISSIONS]}) 
-    #limit choices->limits the choices to a required set                                                              
-    #meta class
+    "codename__in" :[x[0] for x in PERMISSIONS]                                                              })
+
+    #Alternative->"codename__in":['basic',"pro",'advanced' etc ...]
+
     class Meta:
-        permissions=[
-            ('advanced','Advanced Permissions'),#subsricptions.advanced...
-            ('Pro','Pro Permissions'),
-            ('basic','Basic Permissions'),
-            ('Basic Ai','Basic Ai Perm')
-        ]
+        permissions=PERMISSIONS
+
+    def __str__(self):
+        return self.name    

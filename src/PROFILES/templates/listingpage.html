@@ -92,11 +92,15 @@ h2{
 
 <div class="site-container">
   <h2>Our users</h2>
-   {% for user in myusers %}
-  <div class="card card--glass">
-    
-    <p>My user is <strong>{{user.username}}</strong> Learn more about <strong><a href="{% url 'profile' user.pk %}">{{user.username}}</a></strong></p>
-    <p class="card-footer">written by Quintonn</p>
-  </div>
-    {% endfor %}
+
+      {% for instance in myusers %}
+      <div class="card card--glass">
+        
+        
+        
+        <p>My user is <strong>{{instance.username}}</strong> Learn more about <strong><a href="{% url 'profile' instance.username %}">{{instance.username}}</a></strong></p>
+        <p class="card-footer">written by Quintonn</p>
+      </div>
+        {% endfor %}
+     
 </div>
